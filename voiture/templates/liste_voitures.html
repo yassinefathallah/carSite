@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Voitures</title>
+    <style>
+        /* Style pour la mise en page de la liste des voitures */
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        li {
+            width: 30%; 
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #684545;
+            box-shadow: 0 0 5px #ccc;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        /* Style pour les animations et les effets */
+        .voiture {
+            transition: all 0.5s ease-in-out;
+        }
+
+        .voiture:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ccc;
+        }
+        
+    </style>
+</head>
+<body>
+
+<h2 style="text-align: center;"> Liste des Voitures </h2>
+
+<div class="container">
+
+    <p style="text-align: center;">Bonjour {{ user.username }}!</p>
+
+    <a href="/signout" class="btn btn-danger">Déconnexion</a>
+
+    <ul>
+        {% for voiture in voitures %}
+            <li class="voiture">
+                <img src="{{ voiture.image.url }}" alt="{{ voiture.nom }}">
+
+                <h3>{{ voiture.nom }}</h3>
+
+                <p><em> {{ voiture.marque }}  {{ voiture.modele }}</em></p>
+
+                <p>Prix : {{ voiture.prix }} dt</p>
+
+            <p>Discreption  : {{voiture.Discreption}}</p>
+                
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="http://127.0.0.1:8000/ajouter/">Ajouter une nouvelle voiture</a>
+
+</div>
+</body>
+</html>

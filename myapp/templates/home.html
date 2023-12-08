@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+
+   <div class="container mt-4" >
+      <div class="row justify-content-center">
+         <div class="col-md-6 text-center">
+            <h2>Bienvenue !</h2>
+            {% if user.is_authenticated %}
+               <p>Bonjour, {{ user.username }} !</p>
+               <a href="/signout" class="btn btn-danger">Déconnexion</a>
+            {% else %}
+               <a href="/signin" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>Connexion</a>
+               <a href="/signup" class="btn btn-success">Inscription</a>
+            {% endif %}
+         </div>
+      </div>
+   </div>
+{% endblock %}
